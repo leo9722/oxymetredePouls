@@ -6,11 +6,11 @@
 #include <stdlib.h>
 
 /*! ------------------------------------------------------------
-  
+
   \struct absorp
- 
+
   \brief measures
-  
+
   ------------------------------------------------------------*/
 
 typedef struct{
@@ -21,11 +21,11 @@ typedef struct{
 	} absorp;
 
 /*! ------------------------------------------------------------
-  
+
   \struct oxy
- 
-  \brief   
-  
+
+  \brief
+
   ------------------------------------------------------------*/
 
 typedef struct{
@@ -33,6 +33,35 @@ typedef struct{
 		int pouls;  /*!< Pouls */
 	} oxy;
 
+/*! ------------------------------------------------------------
+
+	\struct param_fir
+
+	\brief
+
+	------------------------------------------------------------*/
+
+typedef struct{
+		float coef[51]; //les 51 coeffients
+		absorp precedentes[51]; //les 51 dernieres valeurs
+		int derniere; //indice dernière valeur
+		int premire; //indice première valeur
+	} param_fir;
+
+	/*! ------------------------------------------------------------
+
+		\struct param_iir
+
+		\brief
+
+		------------------------------------------------------------*/
+typedef struct{
+
+		float alpha;
+		absorp precedenteValeurSignale; //les 51 dernieres valeurs
+		absorp precedenteValeurFiltree; //y(n-1)
+
+	} param_iir;
 
 
 
