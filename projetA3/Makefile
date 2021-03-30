@@ -4,7 +4,7 @@ EXT = c
 CXX = gcc
 EXEC = oxy
  
-CXXFLAGS = -Wall -W -pedantic 
+CXXFLAGS = -Wall -W -pedantic -g
 LDFLAGS = 
  
  
