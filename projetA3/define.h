@@ -41,13 +41,6 @@ typedef struct{
 
 	------------------------------------------------------------*/
 
-typedef struct{
-		float coef[51]; //les 51 coeffients
-		absorp precedentes[51]; //les 51 dernieres valeurs
-		int derniere; //indice dernière valeur
-		int premire; //indice première valeur
-	} param_fir;
-
 	/*! ------------------------------------------------------------
 
 		\struct param_iir
@@ -62,7 +55,7 @@ typedef struct{
 		absorp precedenteValeurFiltree; //y(n-1)
 
 	} param_iir;
-	
+
 	typedef struct{
     float acMax; // valeur min et max de ac
     float acMin;
