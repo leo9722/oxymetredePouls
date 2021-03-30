@@ -2,27 +2,20 @@
 #include "define.h"
 #include "iir.h"
 #include "fir.h"
-
+#include "lecture.h"
+#include "fichiers.h"
 int main (){
 
-  // int etat =0;
-  absorp myAbsorp;
-  // oxy myOxy;
-  // param_fir myFIR = {0};
-  // param_iir myIIR = {0};
-  // param_mesure myMes = {0};
-  // FILE* myFile = initFichier("record1.dat");
-  // do{
-  //   myAbsorp = lireFichier(myFile, &etat);
-  //   //myAbsorp = fir(myAbsorp, &myFIR);
-  //   myAbsorp = iir(myAbsorp, &myIIR);
-  //   //myOxy = mesure(myAbsorp, &myMes);
-  //   affichage(myOxy);
-  // }while ( etat != EOF);
-  // finFichier(myFile);
-  // return EXIT_SUCCESS;
-  myAbsorp = firTest("record1.dat");
+  int etat =0;
+   absorp myAbsorp;
+  FILE* test = initFichier("record1_bin.dat");
+  myAbsorp = lireFichier(test, &etat);
+  while( etat != EOF){
 
- return 0;
+   myAbsorp = lecture(test, &etat);
+   printf("%.0f,%.0f,%.0f,%.0f \n", myAbsorp.acr, myAbsorp.acir, myAbsorp.dcr, myAbsorp.dcir);
+  
 
+  }
+return 0;
 }

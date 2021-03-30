@@ -1,7 +1,7 @@
 #include "define.h"
 
+#define ALPHA (0.992)
+
+
 absorp iirTest(char* filename);
-
-absorp iir(absorp exit_FIR_Value, param_iir*);
-
-void init_iir(param_iir*);
+absorp iir(absorp valeurSignal, param_iir*);

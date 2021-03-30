@@ -41,22 +41,31 @@ typedef struct{
 
 	------------------------------------------------------------*/
 
-	/*! ------------------------------------------------------------
+typedef struct{
+		absorp precedentes[51]; //les 51 dernieres valeurs
+		int index; //indice dernière valeur
+		int taille; //indice première valeur
+	} param_fir;
+
+/*! ------------------------------------------------------------
 
 		\struct param_iir
 
 		\brief
 
-		------------------------------------------------------------*/
+------------------------------------------------------------*/
 typedef struct{
-
-		float alpha;
+	
 		absorp precedenteValeurSignale; //les 51 dernieres valeurs
 		absorp precedenteValeurFiltree; //y(n-1)
 
 	} param_iir;
 
-	typedef struct{
+
+
+
+	
+typedef struct{
     float acMax; // valeur min et max de ac
     float acMin;
     float dcMin; // valeur de cd pour ac min et max

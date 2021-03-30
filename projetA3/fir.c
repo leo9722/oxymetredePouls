@@ -3,6 +3,7 @@
 
 absorp firTest(char* filename){
 	absorp	myAbsorp;
+    absorp vartemp;
 
 	int etat = 0;
 	FILE* fic = initFichier(filename);
@@ -12,17 +13,22 @@ absorp firTest(char* filename){
 	while (etat != EOF){
 
 		
-		myAbsorp = lireFichier(fic, &etat);
-		//printf("%.0f,%.0f,%.0f,%.0f :", myAbsorp.acr, myAbsorp.acir, myAbsorp.dcr, myAbsorp.dcir);
-		myAbsorp = fir(myAbsorp,tab);
+		vartemp = lireFichier(fic, &etat);
+
+        if ( etat != EOF){
+		printf("%.0f,%.0f,%.0f,%.0f :", myAbsorp.acr, myAbsorp.acir, myAbsorp.dcr, myAbsorp.dcir);
+		myAbsorp = fir(vartemp,tab);
 			
 			
-		//printf("%.0f,%.0f,%.0f,%.0f\n", myAbsorp.acr, myAbsorp.acir, myAbsorp.dcr, myAbsorp.dcir);
+		
+    }
 
 		
 	}
 	
 	finFichier(fic);
+
+    //printf("%.0f,%.0f,%.0f,%.0f\n", myAbsorp.acr, myAbsorp.acir, myAbsorp.dcr, myAbsorp.dcir);
 	return myAbsorp;
 }
 
@@ -90,7 +96,7 @@ absorp fir(absorp myAbsorp, absorp *tab){
 
 
    for (i = 0; i < 50; i ++){
-			tab[i+1] = tab[i];
+			tab[50 -i] = tab[49-i];
 
 		}
 		tab[0]= myAbsorp;
@@ -102,20 +108,19 @@ absorp fir(absorp myAbsorp, absorp *tab){
     	 
     	
     }
-   	printf("MABSORP : %f :",myAbsorp.acr);
-   	printf("%f \n",myAbsorp.acir);
+   	// printf("MABSORP : %f :",myAbsorp.acr);
+   	// printf("%f \n",myAbsorp.acir);
 
-   	printf(" FIR : %.0f : ", fir_acr );
-   	printf("%.0f\n", fir_acir );
+   	// printf(" FIR : %.0f : ", fir_acr );
+   	// printf("%.0f\n", fir_acir );
 
     myAbsorp.acr = fir_acr;
     myAbsorp.acir = fir_acir;
 
 
 
-   // printf("%.0f,%.0f,%.0f,%.0f : ", myAbsorp.acr, myAbsorp.acir, myAbsorp.dcr, myAbsorp.dcir);
+
 
 return myAbsorp;
 }
-
 
