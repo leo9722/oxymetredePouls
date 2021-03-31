@@ -9,19 +9,21 @@ absorp lecture(FILE* file_pf,  int* file_state){
 
 
 
-    absorp myAbsorp;
+    absorp myAbsorp = {0};
     char  octet_recu = 0;
     int i =0; 
     char tram[21]; 
 
     if(file_pf == NULL) { 
         *file_state = EOF; 
-    }else{
+    }
+    else{
         for(i=0; i < 21; i++){ 
-            octet_recu = (char)fgetc(file_pf); 
+            octet_recu = fgetc(file_pf); 
             if(octet_recu == EOF){ 
                 *file_state = EOF;
-            }else{
+            }
+            else{
                 tram[i]= (octet_recu);
             }
         }
@@ -35,8 +37,12 @@ absorp lecture(FILE* file_pf,  int* file_state){
         myAbsorp.dcir = (float)(( tram[15] -48)*1000 + (tram[16]-48) * 100 + (tram[17]-48) * 10 +( tram[18]-48));
 
        // printf("%.0f,%.0f,%.0f,%.0f ", myAbsorp.acr, myAbsorp.acir, myAbsorp.dcr, myAbsorp.dcir);
+        myAbsorp.acr -= 2048;
+        myAbsorp.acir -= 2048;
+
+        //printf("%.0f,%.0f,%.0f,%.0f \n ", myAbsorp.acr, myAbsorp.acir, myAbsorp.dcr, myAbsorp.dcir);
 
         }
-
+   
 	return myAbsorp; 
 }

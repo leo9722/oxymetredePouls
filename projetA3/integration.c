@@ -1,4 +1,43 @@
+#include <stdio.h>
+#include "fichiers.h"
+#include "lecture.h"
+#include "fir.h"
+#include "iir.h"
+#include "mesure.h"
+#include "affichage.h"
+#include "define.h"
+#include <unistd.h>
+
+
+
 void integrationTest(char* filename)
 {
+  int etat = 0, passage_zero = 0;
+  float compteur_periode = 0;
+  float *minMax = malloc(4*sizeof(float));
+  float *memoire = malloc(1*sizeof(float));
+  absorp myAbsorp ={0};
+  absorp vartemp = {0};
+  absorp tab[51] = {0};
+  oxy myOxy = {0};
+  param_iir myIIR = {0};
 
+  FILE* myFile = initFichier(filename);
+
+
+  do{
+       vartemp = lireFichier(myFile, &etat);
+      //vartemp = lecture(myFile, &etat);
+    if ( etat != EOF)
+    {
+   
+      myAbsorp = fir(vartemp, tab);
+      myAbsorp = iir(myAbsorp, &myIIR);
+      myOxy = mesure(&myAbsorp, myOxy, memoire, minMax, &passage_zero, &compteur_periode);
+      affichage(myOxy);
+
+    }    
+  }
+  while ( etat != EOF);
+  finFichier(myFile);
 }
