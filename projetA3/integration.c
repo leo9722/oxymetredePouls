@@ -12,10 +12,10 @@
 
 void integrationTest(char* filename)
 {
-  int etat = 0, passage_zero = 0;
-  float compteur_periode = 0;
+  int etat = 0, passage_zero = 0 ,i =0;
+  float compteur_periode = 0, memoire = 0;
   float *minMax = malloc(4*sizeof(float));
-  float *memoire = malloc(1*sizeof(float));
+  
   absorp myAbsorp ={0};
   absorp vartemp = {0};
   absorp tab[51] = {0};
@@ -26,6 +26,15 @@ void integrationTest(char* filename)
 
 
   do{
+
+    
+    minMax[i] = 1;
+    i ++;
+
+  }while (i < 4);
+
+
+  do{
        vartemp = lireFichier(myFile, &etat);
       //vartemp = lecture(myFile, &etat);
     if ( etat != EOF)
@@ -33,11 +42,12 @@ void integrationTest(char* filename)
    
       myAbsorp = fir(vartemp, tab);
       myAbsorp = iir(myAbsorp, &myIIR);
-      myOxy = mesure(&myAbsorp, myOxy, memoire, minMax, &passage_zero, &compteur_periode);
+      myOxy = mesure(&myAbsorp, myOxy, &memoire, minMax, &passage_zero, &compteur_periode);
       affichage(myOxy);
 
     }    
   }
   while ( etat != EOF);
+  free(minMax);
   finFichier(myFile);
 }

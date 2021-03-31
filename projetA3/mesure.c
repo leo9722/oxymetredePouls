@@ -35,7 +35,7 @@ oxy mesure(absorp* myAbsorp, oxy myOxy, float* memoire, float *minMax, int* pass
 
 		(*compteur_periode) += 0.002;
 		//printf("%0.3f\n", *compteur_periode );
-		if ((myAbsorp->acr * memoire[0]) <0 ){
+		if ((acr * (*memoire)) <0 ){
 		//if ((myAbsorp->acr > 0 && memoire[0] > 0) || (myAbsorp->acr > 0 && memoire[0] < 0)){
 			//printf("TEST\n");
 			(*passage_zero)++;
@@ -84,8 +84,14 @@ oxy mesure(absorp* myAbsorp, oxy myOxy, float* memoire, float *minMax, int* pass
 
 		*compteur_periode = 0;	
 	}
+		//printf("%0.3f | ", *memoire);
+		//printf("ACR : %f :", acr);
 
-	memoire[0] = acr;
+	*memoire = acr;
+	//memoire[0] = acr;
+
+
+	//printf("%0.3f \n", *memoire);
 	
 
 	return myOxy;
@@ -99,11 +105,13 @@ oxy mesure(absorp* myAbsorp, oxy myOxy, float* memoire, float *minMax, int* pass
 oxy mesureTest(char* filename){
   FILE* data = initFichier(filename);
 	int etat = 0, passage_zero = 0;
-	float compteur_periode = 0;
+	float compteur_periode = 0, memoire = 0;
 	absorp myAbsorp;
 	oxy myOxy = {0};
 	float *minMax = malloc(4*sizeof(float));
-	float *memoire = malloc(1*sizeof(float));
+	//loat *memoire = malloc(1*sizeof(float));
+	
+	
 	int i =0;
 	do{
 
@@ -118,7 +126,7 @@ oxy mesureTest(char* filename){
 		myAbsorp = lireFichier(data, &etat);
 		
 		if (etat != EOF){
-			myOxy = mesure(&myAbsorp, myOxy, memoire, minMax, &passage_zero, &compteur_periode);
+			myOxy = mesure(&myAbsorp, myOxy, &memoire, minMax, &passage_zero, &compteur_periode);
 			//printf("SP02 : %d, POULS : %d\n", myOxy.spo2, myOxy.pouls);
 			
 
@@ -128,11 +136,12 @@ oxy mesureTest(char* filename){
 	}
 
 	finFichier(data);
+	free(minMax);
 
 	return myOxy;
 
-	free(minMax);
-	free(memoire);
+	
+	//free(memoire);
 }
 
 

@@ -9,7 +9,7 @@
 
 int main (){
 
-	integrationTest("record1_bin.dat");
+ integrationTest("record1.dat");
 
 	return 0;
 }

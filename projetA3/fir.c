@@ -16,7 +16,7 @@ absorp firTest(char* filename){
 		vartemp = lireFichier(fic, &etat);
 
         if ( etat != EOF){
-		printf("%.0f,%.0f,%.0f,%.0f :", myAbsorp.acr, myAbsorp.acir, myAbsorp.dcr, myAbsorp.dcir);
+		//printf("%.0f,%.0f,%.0f,%.0f :", myAbsorp.acr, myAbsorp.acir, myAbsorp.dcr, myAbsorp.dcir);
 		myAbsorp = fir(vartemp,tab);		
 		
     }
