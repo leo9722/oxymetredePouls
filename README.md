@@ -12,6 +12,7 @@
  on dois ensuite recompiler le programme
  
 ```make clean```
+puis:
 ```make ```
 enfin un fichier *oxy* sera creer on peut donc l'éxécuter avecla commande suivante  :
 
