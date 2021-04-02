@@ -22,7 +22,7 @@ enfin un fichier *oxy* sera creer on peut donc l'éxécuter avecla commande suiv
 ## Pour changer les valeurs:
 
 Plusieurs fichiers de données sont intégré dans le repos 
-Vous pouvez insérer des données et modifier le filename dans l'appek de *integrationTest* 
+Vous pouvez insérer des données et modifier le filename dans l'appe de ```integrationTest``` 
 
 ainsi vous allez pouvoir utliser vos données 
 
