@@ -35,7 +35,7 @@ void integrationTest(char* filename)
   FILE* myFile = initFichier(filename); // initialisation du fichier 
 
 
-  do{
+  do{// on initialise le min et le max à 1 pour éviter les erreurs
 
     
     minMax[i] = 1;
