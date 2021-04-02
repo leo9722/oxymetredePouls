@@ -5,17 +5,17 @@
 # Installation
  Pour mettre en place l'oxymetre cloner le repos  :
  
- ######*git clone https://github.com/leo9722/oxymetredePouls
+```git clone https://github.com/leo9722/oxymetredePouls```
  
- puis  ######*cd projetA3
+ puis ```cd projetA3```
  
  on dois ensuite recompiler le programme
  
- ######*make clean
-###### make
+```make clean```
+```make ```
 enfin un fichier *oxy* sera creer on peut donc l'éxécuter avecla commande suivante  :
 
-*./oxy*
+```./oxy```
 
 
 ## Pour changer les valeurs:
