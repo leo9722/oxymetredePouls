@@ -1,8 +1,12 @@
-# oxymetredePouls
+# OxymetredePouls
 
-### Dans le cadre de notre 3ème année à L'ISEN, nous avons eu comme projet, la réalisation d'un oxymètre de Pouls. Voici ci-joint notre code en C réalisant ce projet.
+![alt](https://github.com/leo9722/oxymetredePouls/blob/main/oxy.png)
+
+Dans le cadre de notre 3ème année à L'ISEN, nous avons eu comme projet, la réalisation d'un oxymètre de Pouls. 
+Voici ci-joint notre code en C réalisant ce projet.
 
 # Installation
+
  Pour mettre en place l'oxymetre cloner le repos  :
  
 ```git clone https://github.com/leo9722/oxymetredePouls```
